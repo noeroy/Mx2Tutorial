@@ -1,6 +1,11 @@
 # Mx2Tutorial
 Minerva CAFs session tutorial
 
+## File matching
+
+Because we're starting the multiple CAFs file matching, the "file matching" pipeline is not ideal yet. 
+`get_runs.cpp` takes a MLReco flat caf file name as input, opens it, gets the edepsim file number, outputs the minerva corresponding file.
+
 
 ## track_plotter.cpp
 Need to run the cafTree class first.
