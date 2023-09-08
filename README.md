@@ -35,3 +35,8 @@ it outputs first the list of true particle in the 1st trigger, with their `PDG`,
 then outputs the list of reco tracks in the 1st trigger, with their `Energy`, `start (x,y,z)`, `end (x,y,z)` and the true particle associated.
 
 There seems to be still some memory issues in the truth filling for the CAF objects but the global reading procedure will stay the same
+
+
+The cafs are stored here:
+
+/dune/data/users/noeroy/Minirun4/CAFs/
