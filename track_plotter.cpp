@@ -27,14 +27,14 @@ void next()
     frame_zx->Draw();
     c->cd(2);
     frame_zy->Draw();
-
+    int k =0;
     for (int inx = 0; inx < mlCaf->rec_nd_lar_dlp__length; inx++)  //Loop over the ML reco triggers
     {
         for (int tr =  0; tr < mlCaf->rec_nd_lar_dlp_ntracks[inx]; tr++) //Loop over the reconstructed tracks
         {
-            double x[2] = {mlCaf->rec_nd_lar_dlp_tracks_start_x[tr],mlCaf->rec_nd_lar_dlp_tracks_end_x[tr]};
-            double y[2] = {mlCaf->rec_nd_lar_dlp_tracks_start_y[tr],mlCaf->rec_nd_lar_dlp_tracks_end_y[tr]};
-            double z[2] = {mlCaf->rec_nd_lar_dlp_tracks_start_z[tr],mlCaf->rec_nd_lar_dlp_tracks_end_z[tr]};
+            double x[2] = {mlCaf->rec_nd_lar_dlp_tracks_start_x[k],mlCaf->rec_nd_lar_dlp_tracks_end_x[k]};
+            double y[2] = {mlCaf->rec_nd_lar_dlp_tracks_start_y[k],mlCaf->rec_nd_lar_dlp_tracks_end_y[k]};
+            double z[2] = {mlCaf->rec_nd_lar_dlp_tracks_start_z[k],mlCaf->rec_nd_lar_dlp_tracks_end_z[k]};
             TPolyLine * pxy = new TPolyLine(2,x,y);
             TPolyLine * pzx = new TPolyLine(2,z,x);
             TPolyLine * pzy = new TPolyLine(2,z,y);
@@ -47,16 +47,19 @@ void next()
             pzx->Draw();
             c->cd(2);
             pzy->Draw();
+            k+=1;
         }
     }
 
+    k = 0;
     for (int inx = 0; inx < mnvCaf->rec_nd_minerva_ixn__length; inx++)//Loop over the Minerva triggers
     {
         for (int tr =  0; tr < mnvCaf->rec_nd_minerva_ixn_ntracks[inx]; tr++) //Loop over the reconstructed tracks
         {
-            double x[2] = {mnvCaf->rec_nd_minerva_ixn_tracks_start_x[tr],mnvCaf->rec_nd_minerva_ixn_tracks_end_x[tr]};
-            double y[2] = {mnvCaf->rec_nd_minerva_ixn_tracks_start_y[tr],mnvCaf->rec_nd_minerva_ixn_tracks_end_y[tr]};
-            double z[2] = {mnvCaf->rec_nd_minerva_ixn_tracks_start_z[tr],mnvCaf->rec_nd_minerva_ixn_tracks_end_z[tr]};
+            
+            double x[2] = {mnvCaf->rec_nd_minerva_ixn_tracks_start_x[k],mnvCaf->rec_nd_minerva_ixn_tracks_end_x[k]};
+            double y[2] = {mnvCaf->rec_nd_minerva_ixn_tracks_start_y[k],mnvCaf->rec_nd_minerva_ixn_tracks_end_y[k]};
+            double z[2] = {mnvCaf->rec_nd_minerva_ixn_tracks_start_z[k],mnvCaf->rec_nd_minerva_ixn_tracks_end_z[k]};
             TPolyLine * pxy = new TPolyLine(2,x,y);
             TPolyLine * pzx = new TPolyLine(2,z,x);
             TPolyLine * pzy = new TPolyLine(2,z,y);
@@ -69,6 +72,7 @@ void next()
             pzx->Draw();
             c->cd(2);
             pzy->Draw();
+            k+=1;
         }
     }
 
