@@ -363,9 +363,9 @@ void draw(int i)
     next();
 }
 
-void track_plotter_merged()
+void track_plotter()
 {   
-    myCaf = new cafTree("/home/nroy/DUNE/root_minerva/picorun4.1/merged_caf/PicoRun4.1_1E17_RHC.larnd.00000.caf.flat.root");
+    myCaf = new cafTree("PicoRun4.1_1E17_RHC.larnd.00000.caf.flat.root");
 
 
     frame_3D = new TH3D("frame_3D","frame_3D;x[cm];z[cm]; y[cm]",2, -175,175,2,1000,1700,2,-450,-100 ); // Frames
