@@ -1,42 +1,28 @@
-# Mx2Tutorial
-Minerva CAFs session tutorial
-
-## File matching
-
-Because we're starting the multiple CAFs file matching, the "file matching" pipeline is not ideal yet. 
-`get_runs.cpp` takes a MLReco flat caf file name as input, opens it, gets the edepsim file number, outputs the minerva corresponding file.
-
-
 ## track_plotter.cpp
-Need to run the cafTree class first.
+
+Need to compile the cafTree class first.
+
 `root -l -q compile.C`
 
+  
+
 `cafTree.h` is class obtained by calling the MakeClass method on the flat caf root file, where we added an option to load a namefile and raised the container sizes to be sure we don't have any memory issue.
-`track_plotter.cpp` is a "quick and dirty" macro to loop over tracks of MLReco and Mx2 and plot them in xz and yz views.
-Can be ran on your laptop as they use the Flat caf. Root will complain about Genie dependancies not being loaded but it's not a issue.
+Not the optimal way of working with CAFs, as Sindhu presented, `SRProxy` is a cleaner way of working with those. 
+
+`track_plotter.cpp` is a macro that plots the Mx2 tracks and 2x2 MLreco objects in a 3D frame. 
+
+Can be ran on your laptop as they use the Flat caf. Root will complain about GENIE dependancies not being loaded but it's not a issue.
+
+  
 
 `root -l track_plotter.cpp`
+
 Draws the tracks for a given trigger of both detector.
+
 `next()` Draws the next trigger
+
 `draw(i)` Draws trigger i
 
-
-## truth_survey.cpp
-
-"Quick and dirty" macro to look cout track details and to show how we do the truth matching.
-This uses the CAF format - need to be ran on a fermilab machine and load the setup script before.
-
-`./setup.sh`
-
-then
-
-`root -l truth_survey.cpp`
-it outputs first the list of true particle in the 1st trigger, with their `PDG`, `ID`, `interactionID`
-then outputs the list of reco tracks in the 1st trigger, with their `Energy`, `start (x,y,z)`, `end (x,y,z)` and the true particle associated.
-
-There seems to be still some memory issues in the truth filling for the CAF objects but the global reading procedure will stay the same
-
-
-The cafs are stored here:
-
-/dune/data/users/noeroy/Minirun4/CAFs/
+`extrapolate()` Projects the 2x2 tracks into the Mx2 planes
+  
+  There is one example of merged CAFs inside the repository but the other files processed by Jeremy can be found here:  `/dune/data/users/jwolcott/nd/nd-lar-reco/caf/PicoRun4.1/2x2+MINERvA-v0/PicoRun4.1_1E17_RHC.larnd.*.caf.flat.root`
