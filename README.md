@@ -1,3 +1,9 @@
+## Getting started
+
+First clone the directory and checkout the tutorial branch
+
+`git clone git@github.com:noeroy/Mx2Tutorial.git   --branch Jan2024`
+
 ## track_plotter.cpp
 
 Need to compile the cafTree class first.
