@@ -1,5 +1,5 @@
 #include "cafTree.h"
-#include "/home/nroy/noe_basic_style.h"
+#include "basic_style.h"
 
 
 TH3D * frame_3D;
